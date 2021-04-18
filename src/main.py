@@ -119,11 +119,11 @@ def agregar_favorite():
     id_user=request.json.get("id_user",None)
     id_planet=request.json.get("id_planet",None)
     id_person=request.json.get("id_person",None)
-    favorite=Favorite(id_user=id_user, id_planet=id_planet, id_person=id_person)
+    favorite=Favorite(user_id=id_user, planet_id=id_planet, person_id=id_person)
     db.session.add(favorite)
     db.session.commit()
     #user=json.loads(name, color_ojos, color_cabello,gender)
-    return jsonify({"planet":"ok"})
+    return jsonify({"Favorite":"Add"})
 
 
 @app.route("/favorite", methods=["GET"])
@@ -131,7 +131,7 @@ def agregar_favorite():
 def favorite():
     favorite=Favorite.query.all()
     favorite = list(map(lambda x: x.serialize(), favorite))
-    return jsonify(favorite)
+    return jsonify({"Results:":favorite})
 #return 'Response for the POST todo'
 
 @app.route('/favorite/<int:position>', methods=['DELETE'])
@@ -142,7 +142,7 @@ def delete_favorite(position):
         raise APIException('User not found', status_code=404)
     db.session.delete(favorite)
     db.session.commit()
-    return jsonify(favorite)
+    return jsonify({"favorite":"Was Delete"})
 # this only runs if `$ python src/main.py` is executed
 if __name__ == '__main__':
     PORT = int(os.environ.get('PORT', 3000))
