@@ -30,6 +30,9 @@ class Person(db.Model):
     color_eyes = db.Column(db.String(250), nullable=False)
     color_hair = db.Column(db.String(250), nullable=False)
     gender = db.Column(db.String(250), nullable=False)
+    birth = db.Column(db.String(250), nullable=False)
+    height = db.Column(db.String(250), nullable=False)
+    color_skin = db.Column(db.String(250), nullable=False)
 
     
 
@@ -43,6 +46,9 @@ class Person(db.Model):
             "color_eyes": self.color_eyes,
             "color_hair": self.color_hair,
             "gender": self.gender,
+            "birth": self.birth,
+            "height": self.height,
+            "color_skin": self.color_skin,
 # do not serialize the password, its a security breach
         }
 
@@ -53,6 +59,8 @@ class Planet(db.Model):
     rotation = db.Column(db.String(250))
     population = db.Column(db.String(250), nullable=False)
     terrain = db.Column(db.String(250), nullable=False)
+    orbital=db.Column(db.String(250), nullable=False)
+    gravity=db.Column(db.String(250), nullable=False)
 
     def __repr__(self):
         return '<name %r>' % self.name
@@ -65,6 +73,8 @@ class Planet(db.Model):
             "rotation": self.rotation,
             "population": self.population,
             "terrain": self.terrain,
+            "orbital": self.orbital,
+            "gravity": self.gravity,
 # do not serialize the password, its a security breach
         }
 #example_table = Table('example', Base.metadata,
