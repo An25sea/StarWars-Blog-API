@@ -27,8 +27,8 @@ class User(db.Model):
 class Person(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(250), nullable=False)
-    color_ojos = db.Column(db.String(250), nullable=False)
-    color_cabello = db.Column(db.String(250), nullable=False)
+    color_eyes = db.Column(db.String(250), nullable=False)
+    color_hair = db.Column(db.String(250), nullable=False)
     gender = db.Column(db.String(250), nullable=False)
 
     
@@ -40,8 +40,8 @@ class Person(db.Model):
         return {
             "id": self.id,
             "name": self.name,
-            "color_ojos": self.color_ojos,
-            "color_cabello": self.color_cabello,
+            "color_eyes": self.color_eyes,
+            "color_hair": self.color_hair,
             "gender": self.gender,
 # do not serialize the password, its a security breach
         }
@@ -49,10 +49,10 @@ class Person(db.Model):
 class Planet(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(250), nullable=False)
-    diametro = db.Column(db.String(250))
+    diameter = db.Column(db.String(250))
     rotation = db.Column(db.String(250))
-    poblacion = db.Column(db.String(250), nullable=False)
-    terreno = db.Column(db.String(250), nullable=False)
+    population = db.Column(db.String(250), nullable=False)
+    terrain = db.Column(db.String(250), nullable=False)
 
     def __repr__(self):
         return '<name %r>' % self.name
@@ -61,10 +61,10 @@ class Planet(db.Model):
         return {
             "id": self.id,
             "name": self.name,
-            "diametro": self.diametro,
+            "diameter": self.diameter,
             "rotation": self.rotation,
-            "poblacion": self.poblacion,
-            "terreno": self.terreno,
+            "population": self.population,
+            "terrain": self.terrain,
 # do not serialize the password, its a security breach
         }
 #example_table = Table('example', Base.metadata,

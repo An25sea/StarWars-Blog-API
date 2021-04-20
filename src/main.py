@@ -98,7 +98,7 @@ def People_agregar():
 def Planet_get():
     planet=Planet.query.all()
     planet = list(map(lambda x: x.serialize(), planet))
-    return jsonify(planet)
+    return jsonify({"results":planet})
 
 @app.route("/planet", methods=["POST"])
 def Planet_agregar():

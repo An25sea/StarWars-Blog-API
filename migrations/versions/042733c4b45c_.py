@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: a16209583f28
+Revision ID: 042733c4b45c
 Revises: 
-Create Date: 2021-04-18 03:38:56.110323
+Create Date: 2021-04-20 04:41:52.383474
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'a16209583f28'
+revision = '042733c4b45c'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -21,18 +21,18 @@ def upgrade():
     op.create_table('person',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('name', sa.String(length=250), nullable=False),
-    sa.Column('color_ojos', sa.String(length=250), nullable=False),
-    sa.Column('color_cabello', sa.String(length=250), nullable=False),
+    sa.Column('color_eyes', sa.String(length=250), nullable=False),
+    sa.Column('color_hair', sa.String(length=250), nullable=False),
     sa.Column('gender', sa.String(length=250), nullable=False),
     sa.PrimaryKeyConstraint('id')
     )
     op.create_table('planet',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('name', sa.String(length=250), nullable=False),
-    sa.Column('diametro', sa.String(length=250), nullable=True),
+    sa.Column('diameter', sa.String(length=250), nullable=True),
     sa.Column('rotation', sa.String(length=250), nullable=True),
-    sa.Column('poblacion', sa.String(length=250), nullable=False),
-    sa.Column('terreno', sa.String(length=250), nullable=False),
+    sa.Column('population', sa.String(length=250), nullable=False),
+    sa.Column('terrain', sa.String(length=250), nullable=False),
     sa.PrimaryKeyConstraint('id')
     )
     op.create_table('user',
